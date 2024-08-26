@@ -1,0 +1,5 @@
+```
+yarn isntall
+yarn dev
+
+```
