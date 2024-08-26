@@ -7,7 +7,7 @@ import { useAccount } from "wagmi";
 function App() {
   const { address, isConnected } = useAccount();
   return (
-    <div className="flex items-center flex-col">
+    <div className="flex items-center flex-col bg-white dark:bg-[#111629] text-stone-900 dark:text-stone-300 min-h-screen font-inter">
       <Navbar />
       <div className="w-3/4">
         {isConnected ? (
