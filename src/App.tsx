@@ -9,7 +9,7 @@ function App() {
   return (
     <div className="flex items-center flex-col bg-white dark:bg-[#111629] text-stone-900 dark:text-stone-300 min-h-screen font-inter">
       <Navbar />
-      <div className="w-3/4">
+      <div className="w-full px-4 sm:w-3/4">
         {isConnected ? (
           <Staking />
         ) : (
