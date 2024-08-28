@@ -1,32 +1,10 @@
 import { useState, useEffect } from "react";
 import { ethers } from 'ethers';
 
-function DurationSelector({ onDurationSelect, selectedDuration }) {
-    const durations = [
-        { id: 1, label: "1 Month", value: 30 },
-        { id: 2, label: "3 Months", value: 90 },
-        { id: 3, label: "6 Months", value: 180 },
-        { id: 4, label: "1 Year", value: 365 }
-    ];
 
-    return (
-        <div className="grid grid-cols-2 gap-4">
-            {durations.map(duration => (
-                <button
-                    key={duration.id}
-                    className={`p-4 border-2 rounded-lg ${selectedDuration === duration.value ? 'border-blue-500' : 'border-gray-300'} hover:border-blue-500`}
-                    onClick={() => onDurationSelect(duration.value)}
-                >
-                    {duration.label}
-                </button>
-            ))}
-        </div>
-    );
-}
 
 function Staking() {
     const [amount, setAmount] = useState("");
-    const [duration, setDuration] = useState(null);
     const [step, setStep] = useState("amount");
     const [address, setAddress] = useState("");
 
@@ -34,18 +12,14 @@ function Staking() {
     const handleNext = () => {
         console.log(step)
         if (step === 'amount') {
-            setStep('duration');
-        } else if (step === 'duration') {
             setStep('review');
-        }
+        } 
     };
 
     const handleBack = () => {
-        if (step === 'duration') {
+        if (step === 'review') {
             setStep('amount');
-        } else if (step === 'review') {
-            setStep('duration');
-        }
+        } 
     };
 
     const handleSubmit = () => {
@@ -66,7 +40,6 @@ function Staking() {
                         {/* Tabs for navigation */}
                         <div className="flex space-x-4 mb-5">
                             <button className={`flex-1 py-2 border-b-2 ${(step === 'amount') ? 'border-blue-500' : 'border-white'} `}>Amount</button>
-                            <button className={`flex-1 py-2 border-b-2 ${(step === 'duration') ? 'border-blue-500' : 'border-white'}`}>Duration</button>
                             <button className={`flex-1 py-2 border-b-2 ${(step === 'review') ? 'border-blue-500' : 'border-white'}`}>Review</button>
                         </div>
 
@@ -95,12 +68,7 @@ function Staking() {
                             </div>
                         )}
 
-                        {step === 'duration' && (
-                            <DurationSelector
-                                onDurationSelect={setDuration}
-                                selectedDuration={duration}
-                            />
-                        )}
+                        
 
                         {step === 'review' && (
                             <div>
@@ -108,20 +76,16 @@ function Staking() {
                             </div>
                         )}
 
-                        <div className="flex justify-between mt-4">
-                            {step !== 'amount' && <button onClick={handleBack} className="py-2 px-4 border rounded">Back</button>}
+                        <div className="flex flex-wrap mt-4">
+                            {step !== 'amount' && <button onClick={handleBack} className="py-2 px-4 w-full mb-4 border rounded">Back</button>}
                             {step === 'amount' && (
-                                <button onClick={handleNext} className="py-2 px-4 bg-blue-500 text-white rounded">
+                                <button onClick={handleNext} className="py-2 px-4 w-full bg-blue-500 text-white rounded">
                                     Next
                                 </button>
                             )}
-                            {step === 'duration' && (
-                                <button onClick={handleNext} className="py-2 px-4 bg-blue-500 text-white rounded">
-                                    Next
-                                </button>
-                            )}
+                            
                             {step === 'review' && (
-                                <button onClick={handleSubmit} className="py-2 px-4 bg-blue-500 text-white rounded">
+                                <button onClick={handleSubmit} className="py-2 px-4 w-full bg-blue-500 text-white rounded">
                                     Stake
                                 </button>
                             )}
