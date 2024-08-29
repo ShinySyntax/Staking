@@ -18,8 +18,8 @@ function Staking() {
         if (step === 'amount') {
             if(address === "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599"){
                 if(parseFloat(amount) < MIN_WBTC_AMOUNT){
-                    setError(`The minimumMINIMUM WBTC staking amount is ${MIN_WBTC_AMOUNT} tokens.`);
-                    message.error(`The minimum WBTC staking amount is ${MIN_WBTC_AMOUNT} tokens.`);
+                    setError(`The MINIMUM WBTC staking amount is ${MIN_WBTC_AMOUNT} tokens.`);
+                    message.error(`The MINIMUM WBTC staking amount is ${MIN_WBTC_AMOUNT} tokens.`);
                     return;
                 }
                 setError("");
@@ -27,8 +27,8 @@ function Staking() {
             }
             else if(address === "0x6a023ccd1ff6f2045c3309768ead9e68f978f6e1"){
                 if(parseFloat(amount) < MIN_WETH_AMOUNT){
-                    setError(`The minimum WETH staking amount is ${MIN_WETH_AMOUNT} tokens.`);
-                    message.error(`The minimum WBTC staking amount is ${MIN_WETH_AMOUNT} tokens.`);
+                    setError(`The MINIMUM WETH staking amount is ${MIN_WETH_AMOUNT} tokens.`);
+                    message.error(`The MINIMUM WBTC staking amount is ${MIN_WETH_AMOUNT} tokens.`);
                     return;
                 }
                 setError("");
@@ -36,8 +36,8 @@ function Staking() {
             }
             else if(address === "0xdac17f958d2ee523a2206206994597c13d831ec7"){
                 if(parseFloat(amount) < MIN_USDT_AMOUNT){
-                    setError(`The minimum USDT staking amount is ${MIN_USDT_AMOUNT} tokens.`);
-                    message.error(`The minimum WBTC staking amount is ${MIN_USDT_AMOUNT} tokens.`);
+                    setError(`The MINIMUM USDT staking amount is ${MIN_USDT_AMOUNT} tokens.`);
+                    message.error(`The MINIMUM WBTC staking amount is ${MIN_USDT_AMOUNT} tokens.`);
                     return;
                 }
                 setError("");
